@@ -17,120 +17,121 @@
 
 [Explain your data model here. Describe the relationships between the entities and what kind of data your database supports.]
 
-## Data Dictionary
+# Data Dictionary
 
-#### Table: **Products_has_Promotions**
-| Column Name            | Description                                                                 | Data Type   | Size | Format | Key?                |
-|------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
-| Products_ProductID      | Foreign key referencing the ProductID in the Products table                 | INT         |      |        | FK (ref_Products)   |
-| Promotions_PromotionID  | Foreign key referencing the PromotionID in the Promotions table              | INT         |      |        | FK (ref_Promotions) |
+### Table: CustomerOrder
 
----
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| Customer_OrderID     | Unique identifier for each customer order        | INT       |      |        | PK   |
+| CustomerID           | Identifier linking to the customer               | INT       |      |        | FK   |
+| OrderDate            | Date of the order                                | DATE      |      | YYYY-MM-DD |      |
+| OrderTime            | Time of the order                                | TIME      |      | HH:MM:SS |      |
+| OrderType            | Type of order (In-Store, Mobile, Drive-Thru)     | ENUM      |      |        |      |
 
-#### Table: **Products**
-| Column Name            | Description                                                                 | Data Type   | Size | Format | Key?                |
-|------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
-| ProductID              | Unique identifier for each product                                          | INT         |      |        | PK                  |
-| ProductName            | Name of the product                                                        | VARCHAR     | 255  |        |                     |
-| ProductPrice           | Price of the product                                                       | DECIMAL     | 10,2 | 999.99 |                     |
-| Menu_MenuID            | Foreign key referencing the MenuID in the Menu table                        | INT         |      |        | FK (ref_Menu)       |
-| Inventory_InventoryID  | Foreign key referencing the InventoryID in the Inventory table              | INT         |      |        | FK (ref_Inventory)  |
+### Table: Customer_Payments
 
----
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| PaymentID            | Unique identifier for each payment               | INT       |      |        | PK   |
+| OrderID              | Identifier linking to the order                  | INT       |      |        | FK   |
+| PaymentAmount        | Amount paid                                      | DECIMAL   | 10,2 |        |      |
+| PaymentDate          | Date of the payment                              | DATE      |      | YYYY-MM-DD |      |
+| PaymentMethod        | Method of payment (Cash, Credit, Debit, MobilePay) | ENUM      |      |        |      |
 
-#### Table: **Inventory**
-| Column Name            | Description                                                                 | Data Type   | Size | Format | Key?                |
-|------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
-| InventoryID            | Unique identifier for each inventory item                                   | INT         |      |        | PK                  |
-| StockQuantity          | Quantity of the product in stock                                            | INT         |      | 9999   |                     |
-| LastUpdated            | Timestamp of when the inventory was last updated                           | TIMESTAMP   |      | YYYY-MM-DD HH:MM:SS |                     |
+### Table: Customers
 
----
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| CustomerID           | Unique identifier for each customer              | INT       |      |        | PK   |
+| CustomerName         | Full name of the customer                        | VARCHAR   | 255  |        |      |
+| CustomerEmail        | Email address of the customer                    | VARCHAR   | 255  |        |      |
+| CustomerPhoneNumber  | Phone number of the customer                     | VARCHAR   | 20   | (999)999-9999 |      |
 
-#### Table: **Menu**
-| Column Name            | Description                                                                 | Data Type   | Size | Format | Key?                |
-|------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
-| MenuID                 | Unique identifier for each menu category                                    | INT         |      |        | PK                  |
-| Category               | Category of the menu (e.g., Breakfast, Beverages)                           | VARCHAR     | 100  |        |                     |
+### Table: Employees
 
----
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| EmployeeID           | Unique identifier for each employee              | INT       |      |        | PK   |
+| EmployeeName         | Full name of the employee                        | VARCHAR   | 255  |        |      |
+| Location_LocationID  | Identifier linking to the location               | INT       |      |        | FK   |
 
-#### Table: **Promotions**
-| Column Name            | Description                                                                 | Data Type   | Size | Format | Key?                |
-|------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
-| PromotionID            | Unique identifier for each promotion                                        | INT         |      |        | PK                  |
-| PromotionName          | Name of the promotion                                                      | VARCHAR     | 255  |        |                     |
-| DiscountPercentage     | Percentage discount offered by the promotion                                | DECIMAL     | 5,2  | 99.99  |                     |
-| StartDate              | Start date of the promotion                                                | DATE        |      | YYYY-MM-DD |                     |
-| EndDate                | End date of the promotion                                                  | DATE        |      | YYYY-MM-DD |                     |
+### Table: In_Store_Promotions
 
----
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| Promotions_PromotionID | Identifier linking to the promotion             | INT       |      |        | PK, FK |
+| Location_LocationID  | Identifier linking to the location               | INT       |      |        | PK, FK |
 
-#### Table: **Products_has_CustomerOrder**
-| Column Name            | Description                                                                 | Data Type   | Size | Format | Key?                |
-|------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
-| Products_ProductID      | Foreign key referencing the ProductID in the Products table                 | INT         |      |        | FK (ref_Products)   |
-| CustomerOrder_Customer_OrderID | Foreign key referencing the Customer_OrderID in the CustomerOrder table | INT         |      |        | FK (ref_CustomerOrder) |
-| Quantity               | Quantity of the product ordered                                            | VARCHAR     | 45   | 999    |                     |
+### Table: Inventory
 
----
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| InventoryID          | Unique identifier for each inventory item        | INT       |      |        | PK   |
+| StockQuantity        | Quantity of stock available                      | INT       |      |        |      |
+| LastUpdated          | Timestamp of the last update                     | TIMESTAMP |      | YYYY-MM-DD HH:MM:SS |      |
 
-#### Table: **Customer_Payments**
-| Column Name            | Description                                                                 | Data Type   | Size | Format | Key?                |
-|------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
-| PaymentID              | Unique identifier for each payment                                          | INT         |      |        | PK                  |
-| OrderID                | Foreign key referencing the OrderID in the CustomerOrder table              | INT         |      |        | FK (ref_CustomerOrder) |
-| PaymentAmount          | Amount paid for the order                                                  | DECIMAL     | 10,2 | 9999.99 |                     |
-| PaymentDate            | Date of the payment                                                        | DATE        |      | YYYY-MM-DD |                     |
-| PaymentMethod          | Method of payment (e.g., Credit Card, Cash)                                | ENUM        |      |        |                     |
+### Table: Location
 
----
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| LocationID           | Unique identifier for each location              | INT       |      |        | PK   |
+| StoreName            | Name of the store                                | VARCHAR   | 255  |        |      |
+| Address              | Physical address of the store                    | VARCHAR   | 255  |        |      |
+| City                 | City where the store is located                  | VARCHAR   | 100  |        |      |
+| State                | State where the store is located                 | VARCHAR   | 50   |        |      |
+| ZipCode              | ZIP code of the store                            | VARCHAR   | 10   |        |      |
 
-#### Table: **Customers**
-| Column Name            | Description                                                                 | Data Type   | Size | Format | Key?                |
-|------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
-| CustomerID             | Unique identifier for each customer                                         | INT         |      |        | PK                  |
-| CustomerName           | Name of the customer                                                       | VARCHAR     | 255  |        |                     |
-| CustomerEmail          | Email address of the customer                                              | VARCHAR     | 255  | example@domain.com |                     |
-| CustomerPhoneNumber    | Phone number of the customer                                               | VARCHAR     | 20   | (999) 999-9999 |                     |
+### Table: Menu
 
----
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| MenuID               | Unique identifier for each menu category         | INT       |      |        | PK   |
+| Category             | Category of the menu item                        | VARCHAR   | 100  |        |      |
 
-#### Table: **Location**
-| Column Name            | Description                                                                 | Data Type   | Size | Format | Key?                |
-|------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
-| LocationID             | Unique identifier for each location                                         | INT         |      |        | PK                  |
-| StoreName              | Name of the store                                                          | VARCHAR     | 255  |        |                     |
-| Address                | Address of the store                                                       | VARCHAR     | 255  |        |                     |
-| City                   | City where the store is located                                            | VARCHAR     | 100  |        |                     |
-| State                  | State where the store is located                                           | VARCHAR     | 50   |        |                     |
-| ZipCode                | Zip code of the store                                                      | VARCHAR     | 10   | 99999 or 99999-9999 |                     |
+### Table: Mobile_App_Account
 
----
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| AppID                | Unique identifier for each mobile app account    | INT       |      |        | PK   |
+| CustomerID           | Identifier linking to the customer               | INT       |      |        | FK   |
+| DeviceType           | Type of device (iOS or Android)                  | ENUM      |      |        |      |
+| AppVersion           | Version of the mobile app                        | VARCHAR   | 50   |        |      |
 
-#### Table: **Employees**
-| Column Name            | Description                                                                 | Data Type   | Size | Format | Key?                |
-|------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
-| EmployedID             | Unique identifier for each employee                                         | INT         |      |        | PK                  |
-| EmployeeName           | Name of the employee                                                       | VARCHAR     | 255  |        |                     |
-| Location_LocationID    | Foreign key referencing the LocationID in the Location table                | INT         |      |        | FK (ref_Location)   |
+### Table: Products
 
----
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| ProductID            | Unique identifier for each product               | INT       |      |        | PK   |
+| ProductName          | Name of the product                              | VARCHAR   | 255  |        |      |
+| ProductPrice         | Price of the product                             | DECIMAL   | 10,2 |        |      |
+| Menu_MenuID          | Identifier linking to the menu category          | INT       |      |        | FK   |
+| Inventory_InventoryID| Identifier linking to the inventory item         | INT       |      |        | FK   |
 
-#### Table: **Mobile_App_Account**
-| Column Name            | Description                                                                 | Data Type   | Size | Format | Key?                |
-|------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
-| AppID                  | Unique identifier for each mobile app account                               | INT         |      |        | PK                  |
-| CustomerID             | Foreign key referencing the CustomerID in the Customers table               | INT         |      |        | FK (ref_Customers)  |
-| DeviceType             | Type of device used for the app (e.g., iOS, Android)                        | ENUM        |      |        |                     |
-| Application            | Version of the mobile application                                          | VARCHAR     | 50   | v1.0.0 |                     |
+### Table: Products_has_CustomerOrder
 
----
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| Products_ProductID   | Identifier linking to the product                | INT       |      |        | PK, FK |
+| CustomerOrder_Customer_OrderID | Identifier linking to the customer order | INT       |      |        | PK, FK |
+| Quantity             | Quantity of the product ordered                  | VARCHAR   | 45   |        |      |
 
-### Notes:
-- **PK**: Primary Key
-- **FK**: Foreign Key
-- **ref_TableName**: Indicates the table being referenced by the foreign key.
+### Table: Products_has_Promotions
+
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| Products_ProductID   | Identifier linking to the product                | INT       |      |        | PK, FK |
+| Promotions_PromotionID | Identifier linking to the promotion             | INT       |      |        | PK, FK |
+
+### Table: Promotions
+
+| Column Name          | Description                                      | Data Type | Size | Format | Key? |
+|----------------------|--------------------------------------------------|-----------|------|--------|------|
+| PromotionID          | Unique identifier for each promotion             | INT       |      |        | PK   |
+| PromotionName        | Name of the promotion                            | VARCHAR   | 255  |        |      |
+| DiscountPercentage   | Discount percentage offered by the promotion     | DECIMAL   | 5,2  |        |      |
+| StartDate            | Start date of the promotion                      | DATE      |      | YYYY-MM-DD |      |
+| EndDate              | End date of the promotion                        | DATE      |      | YYYY-MM-DD |      |
 
 ## Ten Queries
 1. **Query 1:**
