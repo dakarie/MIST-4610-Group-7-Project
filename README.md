@@ -7,6 +7,7 @@
   - Akshaya Ezhil
   - Justen Newsom
   - Shahil Patel
+  - Josh Gershon
 
 ## Scenario Description
 [Provide a detailed description of the scenario you are modeling. This should include the context of your data model and any relevant discussions with your team or instructor.]
