@@ -1,6 +1,6 @@
 # MIST 4610 Group 7 Project Submission
 
-## Team Number and Members
+# Team Number and Members
 - **Team Number:** Group 7
 - **Members:**
   - Wilson Nguyen (https://github.com/dakarie/MIST-4610-Group-7-Project/blob/main/README.md)
@@ -9,7 +9,7 @@
   - Shahil Patel
   - Josh Gershon
 
-## Scenario Description
+# Scenario Description
 Our client owns and operates multiple Dunkin’ Donuts locations across Georgia and requires a comprehensive database system to manage and track various aspects of their business operations. The client has enlisted students from MIST 4610 to design and implement a database solution that will help streamline store management, improve customer service, and enhance operational efficiency.
 
 The database will track the following key areas:
@@ -23,7 +23,7 @@ The database will track the following key areas:
 8. **Payment Processing**  
 
 
-## Data Model
+# Data Model
 ![Data Model](https://github.com/user-attachments/assets/3a41b1c8-8421-435d-9f42-adc8c6933221)
 
 ### Overview
@@ -163,7 +163,7 @@ This integrated database system supports efficient operations and improved custo
 | StartDate            | Start date of the promotion                      | DATE      |      | YYYY-MM-DD |      |
 | EndDate              | End date of the promotion                        | DATE      |      | YYYY-MM-DD |      |
 
-## Ten Queries
+# Ten Queries
 1. **Query 1:**
    - **Description:** [Describe the query in natural language.]
    - **Justification:** [Explain why this query is relevant from a managerial perspective.]
@@ -187,7 +187,7 @@ This integrated database system supports efficient operations and improved custo
      ```
      [Insert query response here]
      ```
-## Database Information
+# Query Information
 
 - **Database Name:** `al_Group_21484_G7`
 
