@@ -1,4 +1,4 @@
-# MIST 4610 Group 7 Project-1 Submission
+# MIST 4610 Group 7 Project One Submission
 
 # Team Number and Members
 - **Team Number:** Group 7
