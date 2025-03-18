@@ -32,7 +32,7 @@
 |------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
 | ProductID              | Unique identifier for each product                                          | INT         |      |        | PK                  |
 | ProductName            | Name of the product                                                        | VARCHAR     | 255  |        |                     |
-| ProductPrice           | Price of the product                                                       | DECIMAL     | 10,2 |        |                     |
+| ProductPrice           | Price of the product                                                       | DECIMAL     | 10,2 | 999.99 |                     |
 | Menu_MenuID            | Foreign key referencing the MenuID in the Menu table                        | INT         |      |        | FK (ref_Menu)       |
 | Inventory_InventoryID  | Foreign key referencing the InventoryID in the Inventory table              | INT         |      |        | FK (ref_Inventory)  |
 
@@ -42,8 +42,8 @@
 | Column Name            | Description                                                                 | Data Type   | Size | Format | Key?                |
 |------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
 | InventoryID            | Unique identifier for each inventory item                                   | INT         |      |        | PK                  |
-| StockQuantity          | Quantity of the product in stock                                            | INT         |      |        |                     |
-| LastUpdated            | Timestamp of when the inventory was last updated                           | TIMESTAMP   |      |        |                     |
+| StockQuantity          | Quantity of the product in stock                                            | INT         |      | 9999   |                     |
+| LastUpdated            | Timestamp of when the inventory was last updated                           | TIMESTAMP   |      | YYYY-MM-DD HH:MM:SS |                     |
 
 ---
 
@@ -60,9 +60,9 @@
 |------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
 | PromotionID            | Unique identifier for each promotion                                        | INT         |      |        | PK                  |
 | PromotionName          | Name of the promotion                                                      | VARCHAR     | 255  |        |                     |
-| DiscountPercentage     | Percentage discount offered by the promotion                                | DECIMAL     | 5,2  |        |                     |
-| StartDate              | Start date of the promotion                                                | DATE        |      |        |                     |
-| EndDate                | End date of the promotion                                                  | DATE        |      |        |                     |
+| DiscountPercentage     | Percentage discount offered by the promotion                                | DECIMAL     | 5,2  | 99.99  |                     |
+| StartDate              | Start date of the promotion                                                | DATE        |      | YYYY-MM-DD |                     |
+| EndDate                | End date of the promotion                                                  | DATE        |      | YYYY-MM-DD |                     |
 
 ---
 
@@ -71,7 +71,7 @@
 |------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
 | Products_ProductID      | Foreign key referencing the ProductID in the Products table                 | INT         |      |        | FK (ref_Products)   |
 | CustomerOrder_Customer_OrderID | Foreign key referencing the Customer_OrderID in the CustomerOrder table | INT         |      |        | FK (ref_CustomerOrder) |
-| Quantity               | Quantity of the product ordered                                            | VARCHAR     | 45   |        |                     |
+| Quantity               | Quantity of the product ordered                                            | VARCHAR     | 45   | 999    |                     |
 
 ---
 
@@ -80,8 +80,8 @@
 |------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
 | PaymentID              | Unique identifier for each payment                                          | INT         |      |        | PK                  |
 | OrderID                | Foreign key referencing the OrderID in the CustomerOrder table              | INT         |      |        | FK (ref_CustomerOrder) |
-| PaymentAmount          | Amount paid for the order                                                  | DECIMAL     | 10,2 |        |                     |
-| PaymentDate            | Date of the payment                                                        | DATE        |      |        |                     |
+| PaymentAmount          | Amount paid for the order                                                  | DECIMAL     | 10,2 | 9999.99 |                     |
+| PaymentDate            | Date of the payment                                                        | DATE        |      | YYYY-MM-DD |                     |
 | PaymentMethod          | Method of payment (e.g., Credit Card, Cash)                                | ENUM        |      |        |                     |
 
 ---
@@ -91,8 +91,8 @@
 |------------------------|-----------------------------------------------------------------------------|-------------|------|--------|---------------------|
 | CustomerID             | Unique identifier for each customer                                         | INT         |      |        | PK                  |
 | CustomerName           | Name of the customer                                                       | VARCHAR     | 255  |        |                     |
-| CustomerEmail          | Email address of the customer                                              | VARCHAR     | 255  |        |                     |
-| CustomerPhoneNumber    | Phone number of the customer                                               | VARCHAR     | 20   |        |                     |
+| CustomerEmail          | Email address of the customer                                              | VARCHAR     | 255  | example@domain.com |                     |
+| CustomerPhoneNumber    | Phone number of the customer                                               | VARCHAR     | 20   | (999) 999-9999 |                     |
 
 ---
 
@@ -104,7 +104,7 @@
 | Address                | Address of the store                                                       | VARCHAR     | 255  |        |                     |
 | City                   | City where the store is located                                            | VARCHAR     | 100  |        |                     |
 | State                  | State where the store is located                                           | VARCHAR     | 50   |        |                     |
-| ZipCode                | Zip code of the store                                                      | VARCHAR     | 10   |        |                     |
+| ZipCode                | Zip code of the store                                                      | VARCHAR     | 10   | 99999 or 99999-9999 |                     |
 
 ---
 
@@ -123,7 +123,7 @@
 | AppID                  | Unique identifier for each mobile app account                               | INT         |      |        | PK                  |
 | CustomerID             | Foreign key referencing the CustomerID in the Customers table               | INT         |      |        | FK (ref_Customers)  |
 | DeviceType             | Type of device used for the app (e.g., iOS, Android)                        | ENUM        |      |        |                     |
-| Application            | Version of the mobile application                                          | VARCHAR     | 50   |        |                     |
+| Application            | Version of the mobile application                                          | VARCHAR     | 50   | v1.0.0 |                     |
 
 ---
 
