@@ -10,7 +10,18 @@
   - Josh Gershon
 
 ## Scenario Description
-[Provide a detailed description of the scenario you are modeling. This should include the context of your data model and any relevant discussions with your team or instructor.]
+Our client owns and operates multiple Dunkin’ Donuts locations across Georgia and requires a comprehensive database system to manage and track various aspects of their business operations. The client has enlisted students from MIST 4610 to design and implement a database solution that will help streamline store management, improve customer service, and enhance operational efficiency.
+
+The database will track the following key areas:
+1. **Customer Information**  
+2. **Mobile App Integration**  
+3. **Store Locations**  
+4. **Employee Management**  
+5. **Promotions and Discounts**  
+6. **Menu and Inventory Management**  
+7. **Order Tracking**  
+8. **Payment Processing**  
+
 
 ## Data Model
 ![Data Model](https://github.com/user-attachments/assets/3a41b1c8-8421-435d-9f42-adc8c6933221)
