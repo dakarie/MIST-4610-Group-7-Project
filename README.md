@@ -26,7 +26,26 @@ The database will track the following key areas:
 ## Data Model
 ![Data Model](https://github.com/user-attachments/assets/3a41b1c8-8421-435d-9f42-adc8c6933221)
 
-[Explain your data model here. Describe the relationships between the entities and what kind of data your database supports.]
+## Overview
+This database system is designed to manage and track various aspects of Dunkin’ Donuts operations across multiple locations in Georgia. It aims to streamline store management, improve customer service, and enhance operational efficiency.
+
+## Key Areas Tracked
+- **Products and Promotions**: Tracks discounts and promotions applied to specific products.
+- **Inventory Management**: Monitors stock levels and updates to ensure efficient stock management.
+- **Menu Organization**: Categorizes products to help organize offerings by type or category.
+- **Customer Orders and Payments**: Manages customer orders and payment details, linking them to specific customers and payment methods.
+- **Customer Information**: Stores customer details and mobile app usage to enhance customer service.
+- **Store and Employee Management**: Tracks store locations and employee assignments to aid in operational management.
+
+## Entity Relationships
+- **Products** are linked to **Promotions** through the `Products_has_Promotions` table.
+- **Inventory** levels are monitored and updated in the `Inventory` table.
+- **Menu** items are categorized in the `Menu` table.
+- **Customer Orders** and **Payments** are tracked in the `CustomerOrder` and `Customer_Payments` tables.
+- **Customer** details and app usage are managed in the `Customers` and `Mobile_App_Account` tables.
+- **Store Locations** and **Employee** assignments are recorded in the `Location` and `Employees` tables.
+
+This integrated database system supports efficient operations and improved customer service across all locations.
 
 # Data Dictionary
 
