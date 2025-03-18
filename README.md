@@ -13,7 +13,7 @@
 [Provide a detailed description of the scenario you are modeling. This should include the context of your data model and any relevant discussions with your team or instructor.]
 
 ## Data Model
-![Data Model](image.png)
+![Data Model](https://github.com/user-attachments/assets/3a41b1c8-8421-435d-9f42-adc8c6933221)
 
 [Explain your data model here. Describe the relationships between the entities and what kind of data your database supports.]
 
