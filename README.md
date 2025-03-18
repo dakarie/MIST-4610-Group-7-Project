@@ -168,8 +168,20 @@ The database will track the following key areas:
      ```
      [Insert query response here]
      ```
-
 ## Database Information
-- **Database Name:** `[Your Database Name]`
-- **Key Tables:** `[Table 1]`, `[Table 2]`, `[Table 3]`
-- **Stored Procedures:** All queries are implemented as stored procedures named `TP_Qx` (where `x` is the query number). See the [Queries Section](#ten-queries) for details.
+
+- **Database Name:** `al_Group_21484_G7`
+
+| Query Complexity Feature       | Query 1 | Query 2 | Query 3 | Query 4 | Query 5 | Query 6 | Query 7 | Query 8 | Query 9 | Query 10 |
+|-------------------------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|----------|
+| Multiple Table Join            |         |         |         |         |         |         |         |         |         |          |
+| Traditional Subquery           |         |         |         |         |         |         |         |         |         |          |
+| Correlated Subquery            |         |         |         |         |         |         |         |         |         |          |
+| GROUP BY                       |         |         |         |         |         |         |         |         |         |          |
+| GROUP BY with HAVING           |         |         |         |         |         |         |         |         |         |          |
+| Multi-Condition WHERE          |         |         |         |         |         |         |         |         |         |          |
+| Built-in Functions (e.g., AVG) |         |         |         |         |         |         |         |         |         |          |
+| Calculated Field               |         |         |         |         |         |         |         |         |         |          |
+| REGEXP                         |         |         |         |         |         |         |         |         |         |          |
+| NOT EXISTS                     |         |         |         |         |         |         |         |         |         |          |
+
