@@ -3,7 +3,7 @@
 ## Team Number and Members
 - **Team Number:** Group 7
 - **Members:**
-  - Wilson Nguyen (
+  - Wilson Nguyen (https://github.com/dakarie/MIST-4610-Group-7-Project/blob/main/README.md)
   - Akshaya Ezhil
   - Justen Newsom
   - Shahil Patel
