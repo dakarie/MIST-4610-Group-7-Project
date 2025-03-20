@@ -189,7 +189,7 @@ This integrated database system supports efficient operations and improved custo
 2. **Query 2:**
    - **Description:** [Describe the query in natural language.]
    - **Justification:** [Explain why this query is relevant from a managerial perspective.]
-   - **SQL Code:
+   - **SQL Code:**
      ```sql
    SELECT DISTINCT 
         c.CustomerName, co.OrderDate, pr.PromotionName
@@ -202,7 +202,6 @@ This integrated database system supports efficient operations and improved custo
     JOIN Promotions pr ON php.Promotions_PromotionID = pr.PromotionID
     WHERE 
         co.OrderDate BETWEEN pr.StartDate AND pr.EndDate;
-
      ```
    - **Query Response:**
      ```
