@@ -190,9 +190,9 @@ This integrated database system supports efficient operations and improved custo
 2. **Query 2: (Simple)**
    - **Description:** Lists the names of customers who placed orders during active promotion periods, along with the order date and the name of the promotion that was running at the time.
    - **Justification:** This query helps management evaluate how effective promotions are at driving customer engagement. By identifying who places orders during promotions, managers can:
-- Track which deals generate the most activity
-- Target responsive customers for future campaigns
-- Optimize promotion timing and product bundles
+      - Track which deals generate the most activity
+      - Target responsive customers for future campaigns
+      - Optimize promotion timing and product bundles
    - **SQL Code:**
      ```sql
      SELECT DISTINCT 
@@ -365,10 +365,10 @@ This integrated database system supports efficient operations and improved custo
 8. **Query 8: (Complex)**  
    - **Description:** Finds orders that contain only promotional items — meaning every product in that order was part of an active promotion at the time of purchase.
    - **Justification:** This query helps management understand how often customers exclusively buy discounted items, which can indicate:
-- Customer price sensitivity
-- Promotion over-reliance
-- Need to balance discounts with full-price sales
-This insight is useful for marketing teams when designing promotions and assessing if promos are encouraging bundled buying or just deal-hunting.
+        - Customer price sensitivity
+        - Promotion over-reliance
+        - Need to balance discounts with full-price sales
+        This insight is useful for marketing teams when designing promotions and assessing if promos are encouraging bundled buying or just deal-hunting.
    - **SQL Code:**  
      ```sql
      SELECT
@@ -442,9 +442,9 @@ This insight is useful for marketing teams when designing promotions and assessi
 10. **Query 10: (Complex)**  
      - **Description:** Calculates the total revenue per product across each store location, allowing you to see which products earn the most money at each location.
      - **Justification:** This query is essential for product performance analysis by location. It helps managers:
-- Determine which products are driving the most sales at each store
-- Identify regional favorites
-- Make inventory, pricing, and promotional decisions tailored to each location
+        - Determine which products are driving the most sales at each store
+        - Identify regional favorites
+        - Make inventory, pricing, and promotional decisions tailored to each location
 
      - **SQL Code:**  
        ```sql
