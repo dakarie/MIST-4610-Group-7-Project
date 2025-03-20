@@ -439,11 +439,42 @@ This integrated database system supports efficient operations and improved custo
      - **Justification:** zz
      - **SQL Code:**  
        ```sql
-       
+       SELECT
+         l.StoreName,
+         p.ProductName,
+         SUM(phco.Quantity * p.ProductPrice) AS TotalRevenue
+       FROM
+         CustomerOrder co
+       JOIN Products_has_CustomerOrder phco ON co.Customer_OrderID = phco.CustomerOrder_Customer_OrderID
+       JOIN Products p ON phco.Products_ProductID = p.ProductID
+       JOIN Customers c ON co.CustomerID = c.CustomerID
+       JOIN Mobile_App_Account maa ON c.CustomerID = maa.CustomerID
+       JOIN Location l ON l.LocationID IN (1, 2) -- or tie via employees if preferred
+       GROUP BY
+         l.StoreName, p.ProductID
+       ORDER BY
+         TotalRevenue DESC;
        ```
      - **Query Response:**  
        ```
-       
+        | StoreName         | ProductName   | TotalRevenue |
+        |------------------|----------------|--------------|
+        | Dunkin Athens    | Green Tea      | 11           |
+        | Dunkin Peachtree | Green Tea      | 11           |
+        | Dunkin Athens    | Chai Latte     | 9            |
+        | Dunkin Peachtree | Chai Latte     | 9            |
+        | Dunkin Athens    | Iced Coffee    | 5            |
+        | Dunkin Peachtree | Iced Coffee    | 5            |
+        | Dunkin Athens    | Muffin         | 4.5          |
+        | Dunkin Peachtree | Muffin         | 4.5          |
+        | Dunkin Athens    | Glazed Donut   | 3.75         |
+        | Dunkin Peachtree | Glazed Donut   | 3.75         |
+        | Dunkin Athens    | Cold Brew      | 3.5          |
+        | Dunkin Peachtree | Cold Brew      | 3.5          |
+        | Dunkin Athens    | Hot Chocolate  | 3.25         |
+        | Dunkin Peachtree | Hot Chocolate  | 3.25         |
+        | Dunkin Athens    | Hash Browns    | 3            |
+        | Dunkin Peachtree | Hash Browns    | 3            |
        ```
      
 # Query Information
@@ -454,14 +485,14 @@ This integrated database system supports efficient operations and improved custo
 
 | Maxtrix Of Query Features       | Query 1 | Query 2 | Query 3 | Query 4 | Query 5 | Query 6 | Query 7 | Query 8 | Query 9 | Query 10 |
 |-------------------------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|----------|
-| Multiple Table Join            |     ✔    |   ✔     |     ✔    |   ✔      |    ✔     |     ✔    |      ✔   |    ✔     |   ✔      |          |
+| Multiple Table Join            |     ✔    |   ✔     |     ✔    |   ✔      |    ✔     |     ✔    |      ✔   |    ✔     |   ✔      |   ✔       |
 | Traditional Subquery           |         |         |     ✔    |         |     ✔    |      ✔   |      ✔   |      ✔   |    ✔     |          |
 | Correlated Subquery            |         |         |         |         |         |     ✔    |         |      ✔   |         |          |
-| GROUP BY                       |    ✔     |         |    ✔     |     ✔    |         |    ✔     |         |     ✔    |     ✔    |          |
+| GROUP BY                       |    ✔     |         |    ✔     |     ✔    |         |    ✔     |         |     ✔    |     ✔    |      ✔    |
 | GROUP BY with HAVING           |         |         |    ✔     |         |         |       ✔  |   ✔      |      ✔   |      ✔   |          |
-| Multi-Condition WHERE          |         |   ✔      |         |         |     ✔    |         |    ✔     |      ✔   |       ✔  |          |
-| Built-in Functions (e.g., AVG) |       ✔  |         |    ✔     |    ✔     |   ✔      |     ✔    |   ✔      |      ✔   |   ✔      |          |
-| Calculated Field               |         |         |         |         |         |         |     ✔    |         |       ✔  |          |
+| Multi-Condition WHERE          |         |   ✔      |         |         |     ✔    |         |    ✔     |      ✔   |       ✔  |      ✔    |
+| Built-in Functions (e.g., AVG) |       ✔  |         |    ✔     |    ✔     |   ✔      |     ✔    |   ✔      |      ✔   |   ✔      |    ✔      |
+| Calculated Field               |         |         |         |         |         |         |     ✔    |         |       ✔  |      ✔    |
 | REGEXP                         |         |         |         |         |         |         |         |         |    ✔     |          |
 | NOT EXISTS                     |         |         |         |         |         |         |         |    ✔     |         |          |
 
