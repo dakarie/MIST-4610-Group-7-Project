@@ -385,10 +385,23 @@ This integrated database system supports efficient operations and improved custo
        co.Customer_OrderID
      HAVING COUNT(*) > 0;
      ```
-   - **Query Response:**  
-     ```
-     
-     ```
+   - **Query Response:**
+      ```
+      | Customer_OrderID| CustomerName    | PromoItemsOnly|
+      |-----------------|-----------------|---------------|
+      | 1               | Emma Johnson    | 1             |
+      | 13              | Amelia King     | 1             |
+      | 2               | Liam Smith      | 1             |
+      | 14              | Logan Wright    | 1             |
+      | 7               | Sophia Green    | 1             |
+      | 15              | Mila Baker      | 1             |
+      | 8               | James Carter    | 1             |
+      | 16              | Olivia Brown    | 1             |
+      | 18              | Liam Smith      | 1             |
+      | 9               | Isabella Hall   | 1             |
+      | 19              | Emma Johnson    | 1             |
+      | 10              | Benjamin Young  | 1             |
+      ```
 
 9. **Query 9: (Complex)**  
    - **Description:** zz
