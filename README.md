@@ -497,11 +497,11 @@ This insight is useful for marketing teams when designing promotions and assessi
 | Multiple Table Join            |     ✔    |   ✔     |     ✔    |   ✔      |    ✔     |     ✔    |      ✔   |    ✔     |   ✔      |   ✔       |
 | Traditional Subquery           |         |         |     ✔    |         |     ✔    |      ✔   |      ✔   |      ✔   |    ✔     |          |
 | Correlated Subquery            |         |         |         |         |         |     ✔    |         |      ✔   |         |          |
-| GROUP BY                       |    ✔     |         |    ✔     |     ✔    |         |    ✔     |         |     ✔    |     ✔    |      ✔    |
+| GROUP BY                       |    ✔     |         |    ✔     |     ✔    |         |    ✔     |   ✔       |     ✔    |     ✔    |      ✔    |
 | GROUP BY with HAVING           |         |         |    ✔     |         |         |       ✔  |   ✔      |      ✔   |      ✔   |          |
 | Multi-Condition WHERE          |         |   ✔      |         |         |     ✔    |         |    ✔     |      ✔   |       ✔  |      ✔    |
 | Built-in Functions (e.g., AVG) |       ✔  |         |    ✔     |    ✔     |   ✔      |     ✔    |   ✔      |      ✔   |   ✔      |    ✔      |
-| Calculated Field               |         |         |         |         |         |         |     ✔    |         |       ✔  |      ✔    |
+| Calculated Field               |         |         |         |         |         |         |        |         |       ✔  |      ✔    |
 | REGEXP                         |         |         |         |         |         |         |         |         |    ✔     |          |
 | NOT EXISTS                     |         |         |         |         |         |         |         |    ✔     |         |          |
 
