@@ -187,8 +187,8 @@ This integrated database system supports efficient operations and improved custo
      ```
 
 2. **Query 2:**
-   - **Description:** [Describe the query in natural language.]
-   - **Justification:** [Explain why this query is relevant from a managerial perspective.]
+   - **Description:** Lists customers who made orders while promotions were active.
+   - **Justification:** Assesses promotional effectiveness and tracks customer engagement with campaigns.
    - **SQL Code:**
      ```sql
    SELECT DISTINCT 
