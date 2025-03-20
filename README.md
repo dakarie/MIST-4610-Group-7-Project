@@ -408,12 +408,31 @@ This integrated database system supports efficient operations and improved custo
    - **Justification:** zz
    - **SQL Code:**  
      ```sql
-     
+     SELECT
+       c.CustomerName,
+       COUNT(DISTINCT co.Customer_OrderID) AS OrderCount,
+       SUM(cp.PaymentAmount) AS TotalSpent,
+       ROUND(SUM(cp.PaymentAmount) / COUNT(DISTINCT co.Customer_OrderID), 2) AS AvgPerOrder
+     FROM
+       Customers c
+     JOIN CustomerOrder co ON c.CustomerID = co.CustomerID
+     JOIN Customer_Payments cp ON cp.OrderID = co.Customer_OrderID
+     WHERE
+       c.CustomerName REGEXP '(.)\\1'
+     GROUP BY
+       c.CustomerID
+     HAVING
+       OrderCount >= 1 AND TotalSpent > 2;
      ```
-   - **Query Response:**  
-     ```
-     
-     ```
+   - **Query Response:**
+      ```
+      | CustomerName    | OrderCount | TotalSpent | AvgPerOrder|
+      |-----------------|------------|------------|------------|
+      | Emma Johnson    | 2          | 5.75       | 2.88       |
+      | Sophia Green    | 1          | 6.00       | 6.00       |
+      | Charlotte Scott | 1          | 3.25       | 3.25       |
+      ```
+
      
 10. **Query 10: (Complex)**  
      - **Description:** zz
@@ -435,15 +454,15 @@ This integrated database system supports efficient operations and improved custo
 
 | Maxtrix Of Query Features       | Query 1 | Query 2 | Query 3 | Query 4 | Query 5 | Query 6 | Query 7 | Query 8 | Query 9 | Query 10 |
 |-------------------------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|----------|
-| Multiple Table Join            |     ✔    |   ✔     |     ✔    |   ✔      |    ✔     |     ✔    |      ✔   |    ✔     |         |          |
-| Traditional Subquery           |         |         |     ✔    |         |     ✔    |      ✔   |      ✔   |      ✔   |         |          |
+| Multiple Table Join            |     ✔    |   ✔     |     ✔    |   ✔      |    ✔     |     ✔    |      ✔   |    ✔     |   ✔      |          |
+| Traditional Subquery           |         |         |     ✔    |         |     ✔    |      ✔   |      ✔   |      ✔   |    ✔     |          |
 | Correlated Subquery            |         |         |         |         |         |     ✔    |         |      ✔   |         |          |
-| GROUP BY                       |    ✔     |         |    ✔     |     ✔    |         |    ✔     |         |     ✔    |         |          |
-| GROUP BY with HAVING           |         |         |    ✔     |         |         |       ✔  |   ✔      |      ✔   |         |          |
-| Multi-Condition WHERE          |         |   ✔      |         |         |     ✔    |         |    ✔     |      ✔   |         |          |
-| Built-in Functions (e.g., AVG) |       ✔  |         |    ✔     |    ✔     |   ✔      |     ✔    |   ✔      |      ✔   |         |          |
-| Calculated Field               |         |         |         |         |         |         |     ✔    |         |         |          |
-| REGEXP                         |         |         |         |         |         |         |         |         |         |          |
+| GROUP BY                       |    ✔     |         |    ✔     |     ✔    |         |    ✔     |         |     ✔    |     ✔    |          |
+| GROUP BY with HAVING           |         |         |    ✔     |         |         |       ✔  |   ✔      |      ✔   |      ✔   |          |
+| Multi-Condition WHERE          |         |   ✔      |         |         |     ✔    |         |    ✔     |      ✔   |       ✔  |          |
+| Built-in Functions (e.g., AVG) |       ✔  |         |    ✔     |    ✔     |   ✔      |     ✔    |   ✔      |      ✔   |   ✔      |          |
+| Calculated Field               |         |         |         |         |         |         |     ✔    |         |       ✔  |          |
+| REGEXP                         |         |         |         |         |         |         |         |         |    ✔     |          |
 | NOT EXISTS                     |         |         |         |         |         |         |         |    ✔     |         |          |
 
 
