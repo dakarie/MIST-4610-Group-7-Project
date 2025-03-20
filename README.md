@@ -336,12 +336,27 @@ This integrated database system supports efficient operations and improved custo
    - **Justification:** zz
    - **SQL Code:**  
      ```sql
-     
+     SELECT
+       c.CustomerName,
+       COUNT(DISTINCT co.Customer_OrderID) AS OrderCount,
+       SUM(cp.PaymentAmount) AS TotalSpent
+     FROM
+       Customers c
+     JOIN CustomerOrder co ON c.CustomerID = co.CustomerID
+     JOIN Customer_Payments cp ON cp.OrderID = co.Customer_OrderID
+     GROUP BY
+       c.CustomerID
+     HAVING
+       OrderCount >= 2 AND TotalSpent > (SELECT AVG(PaymentAmount) FROM Customer_Payments );
      ```
-   - **Query Response:**  
-     ```
-     
-     ```
+   - **Query Response:**
+      ```
+      | CustomerName | OrderCount | TotalSpent |
+      |--------------|------------|------------|
+      | Emma Johnson | 2          | 5.75       |
+      | Liam Smith   | 2          | 4.00       |
+      ```
+
 
 8. **Query 8:**  
    - **Description:** zz
