@@ -208,9 +208,32 @@ This integrated database system supports efficient operations and improved custo
      ```
      [Insert query response here]
      ```
- 3. **Query 3:**
+     
+3. **Query 3:**
+   - **Description:** Lists customers who made orders while promotions were active.
+   - **Justification:** Assesses promotional effectiveness and tracks customer engagement with campaigns.
+   - **SQL Code:**
+    ```sql
+   SELECT DISTINCT 
+        c.CustomerName, co.OrderDate, pr.PromotionName
+    FROM 
+        CustomerOrder co
+    JOIN Customers c ON co.CustomerID = c.CustomerID
+    JOIN Products_has_CustomerOrder phco ON co.Customer_OrderID = phco.CustomerOrder_Customer_OrderID
+    JOIN Products p ON phco.Products_ProductID = p.ProductID
+    JOIN Products_has_Promotions php ON p.ProductID = php.Products_ProductID
+    JOIN Promotions pr ON php.Promotions_PromotionID = pr.PromotionID
+    WHERE 
+        co.OrderDate BETWEEN pr.StartDate AND pr.EndDate;
+     ```
+     ```
+   - **Query Response:**
+     ```
+     [Insert query response here]
+     ```
+ 4. **Query 4:**
    - **Description:** Identifies inventory items with stock below the average.
-   - **Justification:** Aids in proactive restocking and inventory optimization to avoid product outages
+   - **Justification:** Aids in proactive restocking and inventory optimization to avoid product outages.
    - **SQL Code:**
     ```sql
     SELECT 
