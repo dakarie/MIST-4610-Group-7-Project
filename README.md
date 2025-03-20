@@ -164,7 +164,7 @@ This integrated database system supports efficient operations and improved custo
 | EndDate              | End date of the promotion                        | DATE      |      | YYYY-MM-DD |      |
 
 # Ten Queries
-1. **Query 1:**
+1. **Query 1: (Simple)**
    - **Description:** Compute average revenue per order type (In-Store, Mobile, Drive-Thru)
    - **Justification:** Helps understand which channels bring in more value and can influence marketing or staffing.
    - **SQL Code:**
@@ -187,7 +187,7 @@ This integrated database system supports efficient operations and improved custo
      Drive-Thru    | 3.125000
      ```
 
-2. **Query 2:**
+2. **Query 2: (Simple)**
    - **Description:** Lists customers who made orders while promotions were active.
    - **Justification:** Assesses promotional effectiveness and tracks customer engagement with campaigns.
    - **SQL Code:**
@@ -217,7 +217,7 @@ This integrated database system supports efficient operations and improved custo
       | Liam Smith    | 2025-03-18 | Tea Time      |
      ```
      
-3. **Query 3:**  
+3. **Query 3: (Complex)**  
    - **Description:** Customers Who Spent More Than the Average Across All Orders  
    - **Justification:** Identifies high-value customers for loyalty programs or marketing  
    - **SQL Code:**
@@ -247,7 +247,7 @@ This integrated database system supports efficient operations and improved custo
       | Mila Baker      | 3.50       |
      ```
      
-4. **Query 4:**  
+4. **Query 4: (Simple)**  
    - **Description:** Calculates the total revenue per store location.  
    - **Justification:** Allows managers to compare performance between stores for resource allocation and goal setting.  
    - **SQL Code:**  
@@ -272,7 +272,7 @@ This integrated database system supports efficient operations and improved custo
      | Dunkin Peachtree  | 47.00        |
      ```
 
-5. **Query 5:**  
+5. **Query 5: (Simple)**  
    - **Description:** Identifies inventory items with stock below the average.  
    - **Justification:** Aids in proactive restocking and inventory optimization to avoid product outages.  
    - **SQL Code:**  
@@ -295,7 +295,7 @@ This integrated database system supports efficient operations and improved custo
      | Hot Chocolate | 130           |
      ```
      
-6. **Query 6:**  
+6. **Query 6: (Complex)**  
    - **Description:** Identifies customers whose total spending is above the average.  
    - **Justification:** Helps in targeting high-value customers for loyalty programs and promotions.  
    - **SQL Code:**  
