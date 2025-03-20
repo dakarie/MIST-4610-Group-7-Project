@@ -275,21 +275,25 @@ This integrated database system supports efficient operations and improved custo
    - **Description:** Identifies inventory items with stock below the average.
    - **Justification:** Aids in proactive restocking and inventory optimization to avoid product outages.
    - **SQL Code:**
-    ```sql
-    SELECT 
-        p.ProductName, i.StockQuantity
-    FROM 
-        Products p
-    JOIN Inventory i ON p.Inventory_InventoryID = i.InventoryID
-    WHERE 
-        i.StockQuantity < (
-            SELECT AVG(StockQuantity) FROM Inventory);
-     ```
+     ```sql
+     SELECT
+       p.ProductName, i.StockQuantity
+     FROM
+       Products p
+     JOIN Inventory i ON p.Inventory_InventoryID = i.InventoryID
+     WHERE i.StockQuantity <
+       (SELECT AVG(StockQuantity) FROM Inventory);  
      ```
    - **Query Response:**
      ```
-     [Insert query response here]
+      | ProductName   | StockQuantity |
+      |-------------- |---------------|
+      | Glazed Donut  | 100           |
+      | Hash Browns   | 90            |
+      | Muffin        | 40            |
+      | Hot Chocolate | 130           |
      ```
+    
   6. **Query 6:**
    - **Description:** Compute average revenue per order type (In-Store, Mobile, Drive-Thru)
    - **Justification:**  Helps understand which channels bring in more value and can influence marketing or staffing
