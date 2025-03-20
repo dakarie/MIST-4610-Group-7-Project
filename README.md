@@ -220,8 +220,7 @@ This integrated database system supports efficient operations and improved custo
     JOIN Inventory i ON p.Inventory_InventoryID = i.InventoryID
     WHERE 
         i.StockQuantity < (
-            SELECT AVG(StockQuantity) FROM Inventory
-        );
+            SELECT AVG(StockQuantity) FROM Inventory);
      ```
      ```
    - **Query Response:**
