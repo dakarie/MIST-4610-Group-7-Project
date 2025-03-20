@@ -235,7 +235,7 @@ This integrated database system supports efficient operations and improved custo
      ```
  4. **Query 4:**
    - **Description:**  Calculates the total revenue per store location.
-   - **Justification:** Allows managers to compare performance between stores for resource allocation and goal setting
+   - **Justification:** Allows managers to compare performance between stores for resource allocation and goal setting.
    - **SQL Code:**
     ```sql
     SELECT 
@@ -251,11 +251,11 @@ This integrated database system supports efficient operations and improved custo
         l.LocationID;
      ```
      ```
-   - **Query Response:**
+     - **Query Response:**
      ```
-     [Insert query response here]
+      [Insert query response here]
      ```
- 4. **Query 5:**
+ 5. **Query 5:**
    - **Description:** Identifies inventory items with stock below the average.
    - **Justification:** Aids in proactive restocking and inventory optimization to avoid product outages.
    - **SQL Code:**
