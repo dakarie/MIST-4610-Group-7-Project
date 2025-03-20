@@ -295,23 +295,38 @@ This integrated database system supports efficient operations and improved custo
      ```
     
   6. **Query 6:**
-   - **Description:** Compute average revenue per order type (In-Store, Mobile, Drive-Thru)
-   - **Justification:**  Helps understand which channels bring in more value and can influence marketing or staffing
-   - - **SQL Code:**
+   - **Description:** zz
+   - **Justification:**  zz
+   - **SQL Code:**
      ```sql
-SELECT c.CustomerName, c.CustomerEmail
-FROM Customers c
-WHERE EXISTS (
-    SELECT 1 
-    FROM CustomerOrder co
-    WHERE co.CustomerID = c.CustomerID
-)
-AND c.CustomerEmail REGEXP '@example\\.com$';
-     ```
+     SELECT
+       c.CustomerName,
+       c.CustomerEmail,
+       SUM(cp.PaymentAmount) AS TotalSpent
+     FROM
+       Customers c
+     JOIN CustomerOrder co ON c.CustomerID = co.CustomerID
+     JOIN Customer_Payments cp ON co.Customer_OrderID = cp.OrderID
+     GROUP BY
+       c.CustomerID
+     HAVING
+       SUM(cp.PaymentAmount) > (SELECT AVG(TotalSpent)
+         FROM (SELECT SUM(cp.PaymentAmount) AS TotalSpent
+         FROM Customer_Payments cp
+         JOIN CustomerOrder co ON cp.OrderID = co.Customer_OrderID
+         GROUP BY co.CustomerID) AS CustomerSpending);
+
      ```
    - **Query Response:**
      ```
-     [Insert query response here]
+      | CustomerName   | CustomerEmail              | TotalSpent |
+      |---------------|-----------------------------|------------|
+      | Emma Johnson  | emma.johnson@example.com    | 5.75       |
+      | Liam Smith    | liam.smith@example.com      | 4.00       |
+      | Olivia Brown  | olivia.brown@example.com    | 8.50       |
+      | Sophia Green  | sophia.green@example.com    | 6.00       |
+      | Benjamin Young| benjamin.young@example.com  | 4.50       |
+
      ```
 # Query Information
 
