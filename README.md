@@ -221,8 +221,8 @@ This integrated database system supports efficient operations and improved custo
      ```
      
 3. **Query 3: (Complex)**  
-   - **Description:** Customers Who Spent More Than the Average Across All Orders  
-   - **Justification:** Identifies high-value customers for loyalty programs or marketing  
+   - **Description:** Lists customers whose total spending is above the average payment amount across all customers.
+   - **Justification:** Identifying high-spending customers helps managers recognize and reward top buyers, target them for exclusive deals or loyalty perks, and focus marketing efforts on customers who provide the greatest financial value to the business.
    - **SQL Code:**
      ```sql
      SELECT 
@@ -251,8 +251,8 @@ This integrated database system supports efficient operations and improved custo
      ```
      
 4. **Query 4: (Simple)**  
-   - **Description:** Calculates the total revenue per store location.  
-   - **Justification:** Allows managers to compare performance between stores for resource allocation and goal setting.  
+   - **Description:** Calculates the total revenue generated per store location by summing all customer payments linked to orders from that location.
+   - **Justification:** Understanding how much revenue each store location generates is essential for financial planning, inventory management, and identifying top-performing branches. This helps managers make informed decisions about resource allocation, staff scheduling, and localized marketing strategies.
    - **SQL Code:**  
      ```sql
      SELECT 
@@ -276,8 +276,9 @@ This integrated database system supports efficient operations and improved custo
      ```
 
 5. **Query 5: (Simple)**  
-   - **Description:** Identifies inventory items with stock below the average.  
-   - **Justification:** Aids in proactive restocking and inventory optimization to avoid product outages.  
+   - **Description:** Displays all products whose current stock quantity is below the average inventory level across all products.
+   - **Justification:** This query helps managers identify understocked products so they can prioritize reordering or replenishing. Keeping an eye on inventory levels ensures that high-demand items are always available and helps avoid lost sales due to stockouts.
+
    - **SQL Code:**  
      ```sql
      SELECT
@@ -299,8 +300,8 @@ This integrated database system supports efficient operations and improved custo
      ```
      
 6. **Query 6: (Complex)**  
-   - **Description:** Identifies customers whose total spending is above the average.  
-   - **Justification:** Helps in targeting high-value customers for loyalty programs and promotions.  
+   - **Description:** Displays the names, emails, and total spending of customers whose total purchase amount is greater than the average of all customer spending.
+   - **Justification:** This query helps managers identify high-value customers who are spending more than the average shopper. These individuals are ideal candidates for VIP programs, personalized rewards, or targeted upselling, making this a powerful tool for loyalty management and promotional planning.
    - **SQL Code:**  
      ```sql
      SELECT
@@ -335,8 +336,8 @@ This integrated database system supports efficient operations and improved custo
      | Benjamin Young| benjamin.young@example.com | 4.50       |
      ```
 7. **Query 7: (Complex)**  
-   - **Description:** zz
-   - **Justification:** zz
+   - **Description:** Displays the names, order count, and total spending of customers who have placed two or more orders and whose total spend is above the average single payment value.
+   - **Justification:** This query helps identify consistently active and high-value customers — the ones who come back frequently and spend more than average. These customers are ideal candidates for loyalty rewards, exclusive offers, or early product access, helping build long-term customer relationships.
    - **SQL Code:**  
      ```sql
      SELECT
@@ -362,8 +363,12 @@ This integrated database system supports efficient operations and improved custo
 
 
 8. **Query 8: (Complex)**  
-   - **Description:** zz
-   - **Justification:** zz
+   - **Description:** Finds orders that contain only promotional items — meaning every product in that order was part of an active promotion at the time of purchase.
+   - **Justification:** This query helps management understand how often customers exclusively buy discounted items, which can indicate:
+- Customer price sensitivity
+- Promotion over-reliance
+- Need to balance discounts with full-price sales
+This insight is useful for marketing teams when designing promotions and assessing if promos are encouraging bundled buying or just deal-hunting.
    - **SQL Code:**  
      ```sql
      SELECT
@@ -404,8 +409,8 @@ This integrated database system supports efficient operations and improved custo
       ```
 
 9. **Query 9: (Complex)**  
-   - **Description:** zz
-   - **Justification:** zz
+   - **Description:** Returns customers whose names contain repeating letters (e.g., "Emma", "Charlotte") and who have made at least one order with a total spend over $2. Also calculates the average amount spent per order.
+   - **Justification:** This query combines pattern-based filtering (REGEXP) with customer behavior analytics. It's useful for discovering unique name-based segments of customers who are also meaningfully engaged — making it ideal for creative, personalized promotions or campaigns that stand out with name-based targeting.
    - **SQL Code:**  
      ```sql
      SELECT
@@ -435,8 +440,12 @@ This integrated database system supports efficient operations and improved custo
 
      
 10. **Query 10: (Complex)**  
-     - **Description:** zz
-     - **Justification:** zz
+     - **Description:** Calculates the total revenue per product across each store location, allowing you to see which products earn the most money at each location.
+     - **Justification:** This query is essential for product performance analysis by location. It helps managers:
+- Determine which products are driving the most sales at each store
+- Identify regional favorites
+- Make inventory, pricing, and promotional decisions tailored to each location
+
      - **SQL Code:**  
        ```sql
        SELECT
