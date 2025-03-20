@@ -220,48 +220,56 @@ This integrated database system supports efficient operations and improved custo
 3. **Query 3:**  
    - **Description:** Customers Who Spent More Than the Average Across All Orders  
    - **Justification:** Identifies high-value customers for loyalty programs or marketing  
-   - **SQL Code:**  
-   ```sql
+   - **SQL Code:**
+     ```sql
      SELECT 
-         c.CustomerName, 
-         SUM(cp.PaymentAmount) AS TotalSpent
+       c.CustomerName,
+       SUM(cp.PaymentAmount) AS TotalSpent
      FROM 
-         Customers c
+       Customers c
      JOIN CustomerOrder co ON c.CustomerID = co.CustomerID
      JOIN Customer_Payments cp ON co.Customer_OrderID = cp.OrderID
      GROUP BY 
-         c.CustomerID
+       c.CustomerID
      HAVING 
-         TotalSpent > (
-             SELECT AVG(PaymentAmount) FROM Customer_Payments
-         );
+      	TotalSpent > (SELECT AVG(PaymentAmount) FROM Customer_Payments);
      ```
    - **Query Response:**
      ```
-     [Insert query response here]
+      | CustomerName    | TotalSpent |
+      |-----------------|------------|
+      | Emma Johnson    | 5.75       |
+      | Liam Smith      | 4.00       |
+      | Olivia Brown    | 8.50       |
+      | Sophia Green    | 6.00       |
+      | Benjamin Young  | 4.50       |
+      | Elijah Adams    | 3.50       |
+      | Mila Baker      | 3.50       |
      ```
      
- 4. **Query 4:**
-   - **Description:**  Calculates the total revenue per store location.
-   - **Justification:** Allows managers to compare performance between stores for resource allocation and goal setting.
+4. **Query 4:**  
+   - **Description:** Calculates the total revenue per store location.  
+   - **Justification:** Allows managers to compare performance between stores for resource allocation and goal setting.  
    - **SQL Code:**
-    ```sql
-    SELECT 
-        l.StoreName,
-        SUM(cp.PaymentAmount) AS TotalRevenue
-    FROM 
-        Customer_Payments cp
-    JOIN CustomerOrder co ON cp.OrderID = co.Customer_OrderID
-    JOIN Customers c ON co.CustomerID = c.CustomerID
-    JOIN Mobile_App_Account maa ON c.CustomerID = maa.CustomerID
-    JOIN Location l ON l.LocationID IN (1, 2) -- Can link via orders if location info available
-    GROUP BY 
-        l.LocationID;
+     ```sql
+     SELECT 
+         l.StoreName, 
+         SUM(cp.PaymentAmount) AS TotalRevenue
+     FROM 
+         Customer_Payments cp
+     JOIN CustomerOrder co ON cp.OrderID = co.Customer_OrderID
+     JOIN Customers c ON co.CustomerID = c.CustomerID
+     JOIN Mobile_App_Account maa ON c.CustomerID = maa.CustomerID
+     JOIN Location l ON l.LocationID IN (1, 2) 
+     GROUP BY 
+         l.LocationID;
      ```
+   - **Query Response:**
      ```
-     - **Query Response:**
-     ```
-      [Insert query response here]
+      | StoreName         | TotalRevenue |
+      |-------------------|--------------|
+      | Dunkin Athens     | 47.00        |
+      | Dunkin Peachtree  | 47.00        |
      ```
  5. **Query 5:**
    - **Description:** Identifies inventory items with stock below the average.
