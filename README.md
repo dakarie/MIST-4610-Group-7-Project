@@ -168,8 +168,9 @@ This integrated database system supports efficient operations and improved custo
    - **Description:** Compute average revenue per order type (In-Store, Mobile, Drive-Thru)
 
    - **Justification:**  Helps understand which channels bring in more value and can influence marketing or staffing
-   - **SQL Code:**
-   SELECT 
+   - - **SQL Code:**
+     ```sql
+      SELECT 
         co.OrderType,
         AVG(cp.PaymentAmount) AS AvgPayment
     FROM 
@@ -178,7 +179,7 @@ This integrated database system supports efficient operations and improved custo
     GROUP BY 
         co.OrderType;
         SELECT * FROM Customer_Payments;
-
+     ```
      ```
    - **Query Response:**
      ```
