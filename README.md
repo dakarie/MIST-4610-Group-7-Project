@@ -203,6 +203,7 @@ This integrated database system supports efficient operations and improved custo
     WHERE 
         co.OrderDate BETWEEN pr.StartDate AND pr.EndDate;
      ```
+     ```
    - **Query Response:**
      ```
      [Insert query response here]
