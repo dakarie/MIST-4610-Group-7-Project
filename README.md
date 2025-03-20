@@ -323,7 +323,7 @@ This integrated database system supports efficient operations and improved custo
      ```
    - **Query Response:**  
      ```
-     | CustomerName   | CustomerEmail             | TotalSpent |
+     | CustomerName  | CustomerEmail              | TotalSpent |
      |-------------- |----------------------------|------------|
      | Emma Johnson  | emma.johnson@example.com   | 5.75       |
      | Liam Smith    | liam.smith@example.com     | 4.00       |
