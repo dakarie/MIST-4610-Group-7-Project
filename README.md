@@ -366,7 +366,24 @@ This integrated database system supports efficient operations and improved custo
    - **Justification:** zz
    - **SQL Code:**  
      ```sql
-     
+     SELECT
+       co.Customer_OrderID,
+       c.CustomerName,
+       COUNT(*) AS PromoItemsOnly
+     FROM
+       CustomerOrder co
+     JOIN Customers c ON co.CustomerID = c.CustomerID
+     JOIN Products_has_CustomerOrder phco ON co.Customer_OrderID = phco.CustomerOrder_Customer_OrderID
+     JOIN Products p ON phco.Products_ProductID = p.ProductID
+     WHERE NOT EXISTS (SELECT 1
+       FROM Products p2
+       WHERE p2.ProductID = phco.Products_ProductID
+     AND NOT EXISTS (SELECT 1 FROM Products_has_Promotions php
+       WHERE php.Products_ProductID = p2.ProductID)
+     )
+     GROUP BY
+       co.Customer_OrderID
+     HAVING COUNT(*) > 0;
      ```
    - **Query Response:**  
      ```
