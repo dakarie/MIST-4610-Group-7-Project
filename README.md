@@ -165,8 +165,8 @@ This integrated database system supports efficient operations and improved custo
 
 # Ten Queries
 1. **Query 1: (Simple)**
-   - **Description:** Compute average revenue per order type (In-Store, Mobile, Drive-Thru)
-   - **Justification:** Helps understand which channels bring in more value and can influence marketing or staffing.
+   - **Description:** Compute the average revenue per order type by grouping all customer payments based on how the order was placed — either In-Store, Mobile, or Drive-Thru.
+   - **Justification:** This information helps management understand which ordering channels generate more value per transaction. If one type (e.g., In-Store) consistently brings in higher averages, it may be worth increasing staffing during peak in-store hours or promoting that experience. Alternatively, if mobile orders are underperforming, this could signal the need for better app UX, exclusive mobile offers, or technical improvements.
    - **SQL Code:**
      ```sql
      SELECT 
