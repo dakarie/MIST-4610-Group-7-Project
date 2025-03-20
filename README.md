@@ -255,7 +255,7 @@ This integrated database system supports efficient operations and improved custo
      ```
      [Insert query response here]
      ```
- 4. **Query 4:**
+ 4. **Query 5:**
    - **Description:** Identifies inventory items with stock below the average.
    - **Justification:** Aids in proactive restocking and inventory optimization to avoid product outages.
    - **SQL Code:**
