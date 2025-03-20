@@ -210,8 +210,8 @@ This integrated database system supports efficient operations and improved custo
      ```
      
 3. **Query 3:**
-   - **Description:** Lists customers who made orders while promotions were active.
-   - **Justification:** Assesses promotional effectiveness and tracks customer engagement with campaigns.
+   - **Description:**  Customers Who Spent More Than the Average Across All Orders 
+   - **Justification:** Identifies high-value customers for loyalty programs or marketing
    - **SQL Code:**
     ```sql
      SELECT 
