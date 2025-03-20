@@ -166,8 +166,7 @@ This integrated database system supports efficient operations and improved custo
 # Ten Queries
 1. **Query 1:**
    - **Description:** Compute average revenue per order type (In-Store, Mobile, Drive-Thru)
-
-   - **Justification:**  Helps understand which channels bring in more value and can influence marketing or staffing
+   - **Justification:**  Helps understand which channels bring in more value and can influence marketing or staffing.
    - - **SQL Code:**
      ```sql
       SELECT 
@@ -179,7 +178,6 @@ This integrated database system supports efficient operations and improved custo
       GROUP BY 
         co.OrderType;
         SELECT * FROM Customer_Payments;
-     ```
      ```
    - **Query Response:**
      ```
