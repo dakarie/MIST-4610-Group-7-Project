@@ -173,10 +173,10 @@ This integrated database system supports efficient operations and improved custo
       SELECT 
         co.OrderType,
         AVG(cp.PaymentAmount) AS AvgPayment
-    FROM 
+      FROM 
         CustomerOrder co
-    JOIN Customer_Payments cp ON co.Customer_OrderID = cp.OrderID
-    GROUP BY 
+      JOIN Customer_Payments cp ON co.Customer_OrderID = cp.OrderID
+      GROUP BY 
         co.OrderType;
         SELECT * FROM Customer_Payments;
      ```
@@ -190,6 +190,7 @@ This integrated database system supports efficient operations and improved custo
    - **Description:** Lists customers who made orders while promotions were active.
    - **Justification:** Assesses promotional effectiveness and tracks customer engagement with campaigns.
    - **SQL Code:**
+    ```sql
    SELECT DISTINCT 
         c.CustomerName, co.OrderDate, pr.PromotionName
     FROM 
