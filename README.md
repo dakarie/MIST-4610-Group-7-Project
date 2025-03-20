@@ -213,7 +213,7 @@ This integrated database system supports efficient operations and improved custo
    - **Justification:** Aids in proactive restocking and inventory optimization to avoid product outages
    - **SQL Code:**
     ```sql
-       SELECT 
+    SELECT 
         p.ProductName, i.StockQuantity
     FROM 
         Products p
