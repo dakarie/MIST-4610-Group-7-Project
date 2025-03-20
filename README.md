@@ -6,7 +6,7 @@
   - Wilson Nguyen (https://github.com/dakarie/MIST-4610-Group-7-Project/blob/main/README.md)
   - Akshaya Ezhil (https://github.com/Akshaya-Ezhil/MIST-4610-Group-7-Project-1)
   - Justen Newsom (https://github.com/justennewsom/MIST-4610-Group-7-Project-1/tree/main)
-  - Shahil Patel
+  - Shahil Patel (https://github.com/Shahil8/MIST-4610-Group-7-Project/tree/main)
   - Josh Gershon
 
 # Scenario Description
