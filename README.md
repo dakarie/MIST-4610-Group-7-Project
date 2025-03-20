@@ -208,6 +208,26 @@ This integrated database system supports efficient operations and improved custo
      ```
      [Insert query response here]
      ```
+ 3. **Query 3:**
+   - **Description:** Identifies inventory items with stock below the average.
+   - **Justification:** Aids in proactive restocking and inventory optimization to avoid product outages
+   - **SQL Code:**
+    ```sql
+       SELECT 
+        p.ProductName, i.StockQuantity
+    FROM 
+        Products p
+    JOIN Inventory i ON p.Inventory_InventoryID = i.InventoryID
+    WHERE 
+        i.StockQuantity < (
+            SELECT AVG(StockQuantity) FROM Inventory
+        );
+     ```
+     ```
+   - **Query Response:**
+     ```
+     [Insert query response here]
+     ```
 # Query Information
 
 - **Database Name:** `al_Group_21484_G7`
