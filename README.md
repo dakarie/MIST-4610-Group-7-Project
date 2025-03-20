@@ -188,8 +188,11 @@ This integrated database system supports efficient operations and improved custo
      ```
 
 2. **Query 2: (Simple)**
-   - **Description:** Lists customers who made orders while promotions were active.
-   - **Justification:** Assesses promotional effectiveness and tracks customer engagement with campaigns.
+   - **Description:** Lists the names of customers who placed orders during active promotion periods, along with the order date and the name of the promotion that was running at the time.
+   - **Justification:** This query helps management evaluate how effective promotions are at driving customer engagement. By identifying who places orders during promotions, managers can:
+- Track which deals generate the most activity
+- Target responsive customers for future campaigns
+- Optimize promotion timing and product bundles
    - **SQL Code:**
      ```sql
      SELECT DISTINCT 
