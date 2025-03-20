@@ -4,7 +4,7 @@
 - **Team Number:** Group 7
 - **Members:**
   - Wilson Nguyen (https://github.com/dakarie/MIST-4610-Group-7-Project/blob/main/README.md)
-  - Akshaya Ezhil
+  - Akshaya Ezhil (https://github.com/Akshaya-Ezhil/MIST-4610-Group-7-Project-1)
   - Justen Newsom (https://github.com/justennewsom/MIST-4610-Group-7-Project-1/tree/main)
   - Shahil Patel
   - Josh Gershon
