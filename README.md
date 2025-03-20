@@ -234,11 +234,11 @@ This integrated database system supports efficient operations and improved custo
      [Insert query response here]
      ```
  4. **Query 4:**
-   - **Description:**  Customers Who Spent More Than the Average Across All Orders 
-   - **Justification:** Identifies high-value customers for loyalty programs or marketing
+   - **Description:**  Calculates the total revenue per store location.
+   - **Justification:** Allows managers to compare performance between stores for resource allocation and goal setting
    - **SQL Code:**
     ```sql
-  SELECT 
+    SELECT 
         l.StoreName,
         SUM(cp.PaymentAmount) AS TotalRevenue
     FROM 
