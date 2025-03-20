@@ -331,7 +331,7 @@ This integrated database system supports efficient operations and improved custo
      | Sophia Green  | sophia.green@example.com   | 6.00       |
      | Benjamin Young| benjamin.young@example.com | 4.50       |
      ```
-7. **Query 7:**  
+7. **Query 7: (Complex)**  
    - **Description:** zz
    - **Justification:** zz
    - **SQL Code:**  
@@ -358,7 +358,7 @@ This integrated database system supports efficient operations and improved custo
       ```
 
 
-8. **Query 8:**  
+8. **Query 8: (Complex)**  
    - **Description:** zz
    - **Justification:** zz
    - **SQL Code:**  
@@ -370,7 +370,7 @@ This integrated database system supports efficient operations and improved custo
      
      ```
 
-9. **Query 9:**  
+9. **Query 9: (Complex)**  
    - **Description:** zz
    - **Justification:** zz
    - **SQL Code:**  
@@ -382,7 +382,7 @@ This integrated database system supports efficient operations and improved custo
      
      ```
      
-10. **Query 10:**  
+10. **Query 10: (Complex)**  
      - **Description:** zz
      - **Justification:** zz
      - **SQL Code:**  
