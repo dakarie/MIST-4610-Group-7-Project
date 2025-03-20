@@ -368,16 +368,16 @@ This integrated database system supports efficient operations and improved custo
      ```
      
 10. **Query 10:**  
-   - **Description:** zz
-   - **Justification:** zz
-   - **SQL Code:**  
-     ```sql
-     
-     ```
-   - **Query Response:**  
-     ```
-     
-     ```
+     - **Description:** zz
+     - **Justification:** zz
+     - **SQL Code:**  
+       ```sql
+       
+       ```
+     - **Query Response:**  
+       ```
+       
+       ```
      
 # Query Information
 
