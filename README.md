@@ -274,9 +274,8 @@ This integrated database system supports efficient operations and improved custo
      ```
      [Insert query response here]
      ```
-     6. **Query 6:**
+  6. **Query 6:**
    - **Description:** Compute average revenue per order type (In-Store, Mobile, Drive-Thru)
-
    - **Justification:**  Helps understand which channels bring in more value and can influence marketing or staffing
    - - **SQL Code:**
      ```sql
@@ -288,8 +287,6 @@ WHERE EXISTS (
     WHERE co.CustomerID = c.CustomerID
 )
 AND c.CustomerEmail REGEXP '@example\\.com$';
-
-
      ```
      ```
    - **Query Response:**
