@@ -5,7 +5,7 @@
 - **Members:**
   - Wilson Nguyen (https://github.com/dakarie/MIST-4610-Group-7-Project/blob/main/README.md)
   - Akshaya Ezhil
-  - Justen Newsom @justennewsom
+  - Justen Newsom (https://github.com/justennewsom/MIST-4610-Group-7-Project-1/tree/main)
   - Shahil Patel
   - Josh Gershon
 
