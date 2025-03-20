@@ -191,7 +191,18 @@ This integrated database system supports efficient operations and improved custo
    - **Justification:** [Explain why this query is relevant from a managerial perspective.]
    - **SQL Code:
      ```sql
-     [Insert SQL code here]
+   SELECT DISTINCT 
+        c.CustomerName, co.OrderDate, pr.PromotionName
+    FROM 
+        CustomerOrder co
+    JOIN Customers c ON co.CustomerID = c.CustomerID
+    JOIN Products_has_CustomerOrder phco ON co.Customer_OrderID = phco.CustomerOrder_Customer_OrderID
+    JOIN Products p ON phco.Products_ProductID = p.ProductID
+    JOIN Products_has_Promotions php ON p.ProductID = php.Products_ProductID
+    JOIN Promotions pr ON php.Promotions_PromotionID = pr.PromotionID
+    WHERE 
+        co.OrderDate BETWEEN pr.StartDate AND pr.EndDate;
+
      ```
    - **Query Response:**
      ```
