@@ -181,7 +181,7 @@ This integrated database system supports efficient operations and improved custo
    - **Query Response:**
      ```
      OrderType     | AvgPayment
-     ------------- | ------------
+     ------------- | -----------
      In-Store      | 3.850000
      Mobile        | 3.071429
      Drive-Thru    | 3.125000
@@ -250,7 +250,7 @@ This integrated database system supports efficient operations and improved custo
 4. **Query 4:**  
    - **Description:** Calculates the total revenue per store location.  
    - **Justification:** Allows managers to compare performance between stores for resource allocation and goal setting.  
-   - **SQL Code:**
+   - **SQL Code:**  
      ```sql
      SELECT 
          l.StoreName, 
@@ -264,70 +264,74 @@ This integrated database system supports efficient operations and improved custo
      GROUP BY 
          l.LocationID;
      ```
-   - **Query Response:**
+   - **Query Response:**  
      ```
-      | StoreName         | TotalRevenue |
-      |-------------------|--------------|
-      | Dunkin Athens     | 47.00        |
-      | Dunkin Peachtree  | 47.00        |
+     | StoreName         | TotalRevenue |
+     |-------------------|--------------|
+     | Dunkin Athens     | 47.00        |
+     | Dunkin Peachtree  | 47.00        |
      ```
- 5. **Query 5:**
-   - **Description:** Identifies inventory items with stock below the average.
-   - **Justification:** Aids in proactive restocking and inventory optimization to avoid product outages.
-   - **SQL Code:**
+
+5. **Query 5:**  
+   - **Description:** Identifies inventory items with stock below the average.  
+   - **Justification:** Aids in proactive restocking and inventory optimization to avoid product outages.  
+   - **SQL Code:**  
      ```sql
      SELECT
-       p.ProductName, i.StockQuantity
+         p.ProductName, i.StockQuantity
      FROM
-       Products p
+         Products p
      JOIN Inventory i ON p.Inventory_InventoryID = i.InventoryID
      WHERE i.StockQuantity <
-       (SELECT AVG(StockQuantity) FROM Inventory);  
+         (SELECT AVG(StockQuantity) FROM Inventory);  
      ```
-   - **Query Response:**
+   - **Query Response:**  
      ```
-      | ProductName   | StockQuantity |
-      |-------------- |---------------|
-      | Glazed Donut  | 100           |
-      | Hash Browns   | 90            |
-      | Muffin        | 40            |
-      | Hot Chocolate | 130           |
+     | ProductName   | StockQuantity |
+     |---------------|---------------|
+     | Glazed Donut  | 100           |
+     | Hash Browns   | 90            |
+     | Muffin        | 40            |
+     | Hot Chocolate | 130           |
      ```
-    
-  6. **Query 6:**
-   - **Description:** zz
-   - **Justification:**  zz
-   - **SQL Code:**
+     
+6. **Query 6:**  
+   - **Description:** Identifies customers whose total spending is above the average.  
+   - **Justification:** Helps in targeting high-value customers for loyalty programs and promotions.  
+   - **SQL Code:**  
      ```sql
      SELECT
-       c.CustomerName,
-       c.CustomerEmail,
-       SUM(cp.PaymentAmount) AS TotalSpent
+         c.CustomerName,
+         c.CustomerEmail,
+         SUM(cp.PaymentAmount) AS TotalSpent
      FROM
-       Customers c
+         Customers c
      JOIN CustomerOrder co ON c.CustomerID = co.CustomerID
      JOIN Customer_Payments cp ON co.Customer_OrderID = cp.OrderID
      GROUP BY
-       c.CustomerID
+         c.CustomerID
      HAVING
-       SUM(cp.PaymentAmount) > (SELECT AVG(TotalSpent)
-         FROM (SELECT SUM(cp.PaymentAmount) AS TotalSpent
-         FROM Customer_Payments cp
-         JOIN CustomerOrder co ON cp.OrderID = co.Customer_OrderID
-         GROUP BY co.CustomerID) AS CustomerSpending);
-
+         SUM(cp.PaymentAmount) > (
+             SELECT AVG(TotalSpent)
+             FROM (
+                 SELECT SUM(cp.PaymentAmount) AS TotalSpent
+                 FROM Customer_Payments cp
+                 JOIN CustomerOrder co ON cp.OrderID = co.Customer_OrderID
+                 GROUP BY co.CustomerID
+             ) AS CustomerSpending
+         );
      ```
-   - **Query Response:**
+   - **Query Response:**  
      ```
-      | CustomerName   | CustomerEmail              | TotalSpent |
-      |---------------|-----------------------------|------------|
-      | Emma Johnson  | emma.johnson@example.com    | 5.75       |
-      | Liam Smith    | liam.smith@example.com      | 4.00       |
-      | Olivia Brown  | olivia.brown@example.com    | 8.50       |
-      | Sophia Green  | sophia.green@example.com    | 6.00       |
-      | Benjamin Young| benjamin.young@example.com  | 4.50       |
-
+     | CustomerName   | CustomerEmail             | TotalSpent |
+     |-------------- |----------------------------|------------|
+     | Emma Johnson  | emma.johnson@example.com   | 5.75       |
+     | Liam Smith    | liam.smith@example.com     | 4.00       |
+     | Olivia Brown  | olivia.brown@example.com   | 8.50       |
+     | Sophia Green  | sophia.green@example.com   | 6.00       |
+     | Benjamin Young| benjamin.young@example.com | 4.50       |
      ```
+     
 # Query Information
 
 - **Database Name:** `al_Group_21484_G7`
