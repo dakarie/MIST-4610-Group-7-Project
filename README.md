@@ -165,11 +165,20 @@ This integrated database system supports efficient operations and improved custo
 
 # Ten Queries
 1. **Query 1:**
-   - **Description:** [Describe the query in natural language.]
-   - **Justification:** [Explain why this query is relevant from a managerial perspective.]
+   - **Description:** Compute average revenue per order type (In-Store, Mobile, Drive-Thru)
+
+   - **Justification:**  Helps understand which channels bring in more value and can influence marketing or staffing
    - **SQL Code:**
-     ```sql
-     [Insert SQL code here]
+   SELECT 
+        co.OrderType,
+        AVG(cp.PaymentAmount) AS AvgPayment
+    FROM 
+        CustomerOrder co
+    JOIN Customer_Payments cp ON co.Customer_OrderID = cp.OrderID
+    GROUP BY 
+        co.OrderType;
+        SELECT * FROM Customer_Payments;
+
      ```
    - **Query Response:**
      ```
