@@ -234,6 +234,28 @@ This integrated database system supports efficient operations and improved custo
      [Insert query response here]
      ```
  4. **Query 4:**
+   - **Description:**  Customers Who Spent More Than the Average Across All Orders 
+   - **Justification:** Identifies high-value customers for loyalty programs or marketing
+   - **SQL Code:**
+    ```sql
+  SELECT 
+        l.StoreName,
+        SUM(cp.PaymentAmount) AS TotalRevenue
+    FROM 
+        Customer_Payments cp
+    JOIN CustomerOrder co ON cp.OrderID = co.Customer_OrderID
+    JOIN Customers c ON co.CustomerID = c.CustomerID
+    JOIN Mobile_App_Account maa ON c.CustomerID = maa.CustomerID
+    JOIN Location l ON l.LocationID IN (1, 2) -- Can link via orders if location info available
+    GROUP BY 
+        l.LocationID;
+     ```
+     ```
+   - **Query Response:**
+     ```
+     [Insert query response here]
+     ```
+ 4. **Query 4:**
    - **Description:** Identifies inventory items with stock below the average.
    - **Justification:** Aids in proactive restocking and inventory optimization to avoid product outages.
    - **SQL Code:**
