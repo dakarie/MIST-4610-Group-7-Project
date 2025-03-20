@@ -435,15 +435,15 @@ This integrated database system supports efficient operations and improved custo
 
 | Maxtrix Of Query Features       | Query 1 | Query 2 | Query 3 | Query 4 | Query 5 | Query 6 | Query 7 | Query 8 | Query 9 | Query 10 |
 |-------------------------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|----------|
-| Multiple Table Join            |     ✔    |   ✔     |     ✔    |   ✔      |    ✔     |     ✔    |      ✔   |         |         |          |
-| Traditional Subquery           |         |         |     ✔    |         |     ✔    |      ✔   |      ✔   |         |         |          |
-| Correlated Subquery            |         |         |         |         |         |     ✔    |         |         |         |          |
-| GROUP BY                       |    ✔     |         |    ✔     |     ✔    |         |    ✔     |         |         |         |          |
-| GROUP BY with HAVING           |         |         |    ✔     |         |         |       ✔  |   ✔      |         |         |          |
-| Multi-Condition WHERE          |         |   ✔      |         |         |     ✔    |         |    ✔     |         |         |          |
-| Built-in Functions (e.g., AVG) |       ✔  |         |    ✔     |    ✔     |   ✔      |     ✔    |   ✔      |         |         |          |
+| Multiple Table Join            |     ✔    |   ✔     |     ✔    |   ✔      |    ✔     |     ✔    |      ✔   |    ✔     |         |          |
+| Traditional Subquery           |         |         |     ✔    |         |     ✔    |      ✔   |      ✔   |      ✔   |         |          |
+| Correlated Subquery            |         |         |         |         |         |     ✔    |         |      ✔   |         |          |
+| GROUP BY                       |    ✔     |         |    ✔     |     ✔    |         |    ✔     |         |     ✔    |         |          |
+| GROUP BY with HAVING           |         |         |    ✔     |         |         |       ✔  |   ✔      |      ✔   |         |          |
+| Multi-Condition WHERE          |         |   ✔      |         |         |     ✔    |         |    ✔     |      ✔   |         |          |
+| Built-in Functions (e.g., AVG) |       ✔  |         |    ✔     |    ✔     |   ✔      |     ✔    |   ✔      |      ✔   |         |          |
 | Calculated Field               |         |         |         |         |         |         |     ✔    |         |         |          |
 | REGEXP                         |         |         |         |         |         |         |         |         |         |          |
-| NOT EXISTS                     |         |         |         |         |         |         |         |         |         |          |
+| NOT EXISTS                     |         |         |         |         |         |         |         |    ✔     |         |          |
 
 
