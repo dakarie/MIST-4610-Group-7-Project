@@ -190,7 +190,6 @@ This integrated database system supports efficient operations and improved custo
    - **Description:** Lists customers who made orders while promotions were active.
    - **Justification:** Assesses promotional effectiveness and tracks customer engagement with campaigns.
    - **SQL Code:**
-     ```sql
    SELECT DISTINCT 
         c.CustomerName, co.OrderDate, pr.PromotionName
     FROM 
