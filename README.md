@@ -166,71 +166,81 @@ This integrated database system supports efficient operations and improved custo
 # Ten Queries
 1. **Query 1:**
    - **Description:** Compute average revenue per order type (In-Store, Mobile, Drive-Thru)
-   - **Justification:**  Helps understand which channels bring in more value and can influence marketing or staffing.
-   - - **SQL Code:**
+   - **Justification:** Helps understand which channels bring in more value and can influence marketing or staffing.
+   - **SQL Code:**
      ```sql
-      SELECT 
-        co.OrderType,
-        AVG(cp.PaymentAmount) AS AvgPayment
-      FROM 
-        CustomerOrder co
-      JOIN Customer_Payments cp ON co.Customer_OrderID = cp.OrderID
-      GROUP BY 
-        co.OrderType;
-        SELECT * FROM Customer_Payments;
+     SELECT 
+         co.OrderType,
+         AVG(cp.PaymentAmount) AS AvgPayment
+     FROM 
+         CustomerOrder co
+     JOIN Customer_Payments cp ON co.Customer_OrderID = cp.OrderID
+     GROUP BY 
+         co.OrderType;
      ```
    - **Query Response:**
      ```
-     [Insert query response here]
+     OrderType     | AvgPayment
+     ------------- | ------------
+     In-Store      | 3.850000
+     Mobile        | 3.071429
+     Drive-Thru    | 3.125000
      ```
 
 2. **Query 2:**
    - **Description:** Lists customers who made orders while promotions were active.
    - **Justification:** Assesses promotional effectiveness and tracks customer engagement with campaigns.
    - **SQL Code:**
-    ```sql
-   SELECT DISTINCT 
-        c.CustomerName, co.OrderDate, pr.PromotionName
-    FROM 
-        CustomerOrder co
-    JOIN Customers c ON co.CustomerID = c.CustomerID
-    JOIN Products_has_CustomerOrder phco ON co.Customer_OrderID = phco.CustomerOrder_Customer_OrderID
-    JOIN Products p ON phco.Products_ProductID = p.ProductID
-    JOIN Products_has_Promotions php ON p.ProductID = php.Products_ProductID
-    JOIN Promotions pr ON php.Promotions_PromotionID = pr.PromotionID
-    WHERE 
-        co.OrderDate BETWEEN pr.StartDate AND pr.EndDate;
+     ```sql
+     SELECT DISTINCT 
+         c.CustomerName, co.OrderDate, pr.PromotionName
+     FROM 
+         CustomerOrder co
+     JOIN Customers c ON co.CustomerID = c.CustomerID
+     JOIN Products_has_CustomerOrder phco ON co.Customer_OrderID = phco.CustomerOrder_Customer_OrderID
+     JOIN Products p ON phco.Products_ProductID = p.ProductID
+     JOIN Products_has_Promotions php ON p.ProductID = php.Products_ProductID
+     JOIN Promotions pr ON php.Promotions_PromotionID = pr.PromotionID
+     WHERE 
+         co.OrderDate BETWEEN pr.StartDate AND pr.EndDate;
      ```
+   - **Query Response:**
+     ```
+      | CustomerName  | OrderDate  | PromotionName |
+      |---------------|------------|---------------|
+      | Emma Johnson  | 2025-03-14 | Spring Deal   |
+      | Amelia King   | 2025-03-14 | Spring Deal   |
+      | Sophia Green  | 2025-03-17 | Tea Time      |
+      | Mila Baker    | 2025-03-17 | Tea Time      |
+      | James Carter  | 2025-03-17 | Tea Time      |
+      | Olivia Brown  | 2025-03-18 | Tea Time      |
+      | Liam Smith    | 2025-03-18 | Tea Time      |
+     ```
+     
+3. **Query 3:**  
+   - **Description:** Customers Who Spent More Than the Average Across All Orders  
+   - **Justification:** Identifies high-value customers for loyalty programs or marketing  
+   - **SQL Code:**  
+   ```sql
+     SELECT 
+         c.CustomerName, 
+         SUM(cp.PaymentAmount) AS TotalSpent
+     FROM 
+         Customers c
+     JOIN CustomerOrder co ON c.CustomerID = co.CustomerID
+     JOIN Customer_Payments cp ON co.Customer_OrderID = cp.OrderID
+     GROUP BY 
+         c.CustomerID
+     HAVING 
+         TotalSpent > (
+             SELECT AVG(PaymentAmount) FROM Customer_Payments
+         );
      ```
    - **Query Response:**
      ```
      [Insert query response here]
      ```
      
-3. **Query 3:**
-   - **Description:**  Customers Who Spent More Than the Average Across All Orders 
-   - **Justification:** Identifies high-value customers for loyalty programs or marketing
-   - **SQL Code:**
-    ```sql
-     SELECT 
-        c.CustomerName,
-        SUM(cp.PaymentAmount) AS TotalSpent
-    FROM 
-        Customers c
-    JOIN CustomerOrder co ON c.CustomerID = co.CustomerID
-    JOIN Customer_Payments cp ON co.Customer_OrderID = cp.OrderID
-    GROUP BY 
-        c.CustomerID
-    HAVING 
-        TotalSpent > (
-            SELECT AVG(PaymentAmount) FROM Customer_Payments
-        );
-     ```
-     ```
-   - **Query Response:**
-     ```
-     [Insert query response here]
-     ```
  4. **Query 4:**
    - **Description:**  Calculates the total revenue per store location.
    - **Justification:** Allows managers to compare performance between stores for resource allocation and goal setting.
