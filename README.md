@@ -7,7 +7,7 @@
   - Akshaya Ezhil [@Akshaya-Ezhil](https://github.com/Akshaya-Ezhil/MIST-4610-Group-7-Project-1)
   - Justen Newsom [@justennewsom](https://github.com/justennewsom/MIST-4610-Group-7-Project-1/tree/main)
   - Shahil Patel [@Shahil8](https://github.com/Shahil8/MIST-4610-Group-7-Project/tree/main)
-  - Josh Gershon [@JoshuaGershon]
+  - Josh Gershon [@JoshuaGershon](https://github.com/JoshuaGershon/MIST-4610-Group-7-Project-1)
 
 # Scenario Description
 Our client owns and operates multiple Dunkin’ Donuts locations across Georgia and requires a comprehensive database system to manage and track various aspects of their business operations. The client has enlisted students from MIST 4610 to design and implement a database solution that will help streamline store management, improve customer service, and enhance operational efficiency.
